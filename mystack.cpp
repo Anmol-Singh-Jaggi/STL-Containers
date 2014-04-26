@@ -34,10 +34,10 @@ public:
     {
         stack_top=recurse_copy(other.stack_top);
     }
-    ~mystack<T>();  // Destructor
+    ~mystack();  // Destructor
 
     // Assignment operator...
-    mystack<T>& operator = (mystack other);
+    mystack& operator = (mystack other);
 
     // Stack-Specific routines...
     void push(const T &val);  // Add a new node to the stack...
