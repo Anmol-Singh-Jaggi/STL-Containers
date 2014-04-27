@@ -1,6 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
+// MYSTACK BEGINS...
+
+
 // Class Forward Declaration
 template<typename T> class mystack;
 
@@ -122,7 +126,7 @@ size_t mystack<T>::size() const
 template<typename T>
 bool mystack<T>::empty() const
 {
-    return stack_size==0;
+    return size()==0;
 }
 
 template<typename T>
@@ -142,15 +146,25 @@ template<typename T>
 ostream& operator <<(ostream& out,const mystack<T> &a)
 {
     typename mystack<T>::mystack_node* temp=a.stack_top;
+    out<<"{ ";
     while(temp!=NULL)
     {
         out<<temp->data<<" ";
         temp=temp->next;
     }
+    out<<"}";
     return out;
 }
 
+
+// MYSTACK ENDS...
+
+// Usage...
 int main()
 {
-    stack<int> a;
+    mystack<int> a;
+    a.push(1);
+    a.push(2);
+    a.push(3);
+    cout<<a;
 }
