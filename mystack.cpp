@@ -30,14 +30,14 @@ template<typename T> class  mystack
     void mystack_swap(mystack &a,mystack &b);  //  Swap function used in the assignment operator ( Copy-and-Swap Idiom )
     mystack_node* recurse_copy(const mystack_node* head);  //  Helper for Copy Constructor
 
+    //  Friend function Declaration
+    friend ostream& operator << <> (ostream&,const mystack&);
+
 public:
 
     // Constructors/Destructors...
-    mystack():stack_size(0),stack_top(NULL) {}  // Constructor...
-    mystack(const mystack& other):stack_size(other.stack_size),stack_top(NULL)  // Copy Constructor...
-    {
-        stack_top=recurse_copy(other.stack_top);
-    }
+    mystack();// Constructor...
+    mystack(const mystack& other);// Copy Constructor...
     ~mystack();  // Destructor
 
     // Assignment operator...
@@ -50,9 +50,6 @@ public:
     bool empty() const;   // Returns whether if the stack is empty or not...
     T& top ();   // Returns the "top" node from the stack...
     const T& top() const;
-
-    //  Friend function Declaration
-    friend ostream& operator << <> (ostream&,const mystack&);
 };
 
 // Utility Function Definitions...
@@ -74,7 +71,21 @@ typename mystack<T>::mystack_node* mystack<T>::recurse_copy(const mystack_node* 
 }
 
 
-// Destructor Definition...
+// Constructors/Destructors...
+template<typename T>
+mystack<T>::mystack()
+{
+    stack_size=0;
+    stack_top=NULL;
+}
+
+template<typename T>
+mystack<T>::mystack(const mystack& other)
+{
+    stack_size=other.stack_size;
+    stack_top=recurse_copy(other.stack_top);
+}
+
 template<typename T>
 mystack<T>::~mystack()
 {
