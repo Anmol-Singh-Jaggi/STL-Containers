@@ -1,6 +1,6 @@
 **Description -:**
 
-My attempt at writing my own versions of C++ STL containers.
+An attempt at writing my own versions of C++ STL containers.
 
 **Containers Included -:**   
 
