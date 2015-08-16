@@ -1,9 +1,6 @@
-**Description -:**
-
+# STL-Containers
 An attempt at writing my own versions of C++ STL containers.
 
-**Containers Included -:**   
-
-1). Stack   
-2). Vector   
-
+**Containers included -:**
+ - Stack
+ - Vector
